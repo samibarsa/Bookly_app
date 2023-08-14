@@ -1,3 +1,4 @@
+import 'package:bookly_app/utils/assets.dart';
 import 'package:flutter/material.dart';
 
 class SplachViewBody extends StatelessWidget {
@@ -5,6 +6,6 @@ class SplachViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column();
+    return Center(child: Image.asset(AssetesData.logo));
   }
 }
