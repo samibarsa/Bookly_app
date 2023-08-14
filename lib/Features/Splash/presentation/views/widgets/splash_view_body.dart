@@ -1,7 +1,10 @@
+import 'package:bookly_app/Features/Home/presentasion/views/home_view.dart';
 import 'package:bookly_app/Features/Splash/presentation/views/widgets/sliding_text.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../../../../core/assets.dart';
+import '../../../../../costannt.dart';
 
 class SplachViewBody extends StatefulWidget {
   const SplachViewBody({super.key});
@@ -17,6 +20,11 @@ class _SplachViewBodyState extends State<SplachViewBody>
   @override
   void initState() {
     super.initState();
+    initslidinganimation();
+    goToHome();
+  }
+
+  void initslidinganimation() {
     animationController =
         AnimationController(vsync: this, duration: const Duration(seconds: 1));
     slidinganimation =
@@ -41,5 +49,12 @@ class _SplachViewBodyState extends State<SplachViewBody>
         SlidingText(slidinganimation: slidinganimation)
       ],
     );
+  }
+
+  void goToHome() {
+    Future.delayed(const Duration(seconds: 2), () {
+      Get.to(() => const HomeView(),
+          transition: Transition.fadeIn, duration: kTranstionDuration);
+    });
   }
 }
